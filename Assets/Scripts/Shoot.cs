@@ -23,8 +23,6 @@ public class Shoot : MonoBehaviour
 			if(Input.GetKey(KeyCode.Space))
 				SpawnBombFromPool();
 		}
-		if(projectile != null)
-			projectile.GetComponent<Rigidbody>().velocity = transform.forward * 20;
 	}
 
     //NOT USING OBJ POOL
@@ -42,6 +40,7 @@ public class Shoot : MonoBehaviour
 		Vector3 position = transform.position;
 		projectile = BasicPool.Instance.GetFromPool();
 		projectile.transform.position = position;
+		projectile.GetComponent<Rigidbody>().velocity = transform.forward * 20;
 	}
 
 
